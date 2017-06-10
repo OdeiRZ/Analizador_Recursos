@@ -39,8 +39,8 @@ public class Resultado_Interfaz extends JFrame {
         
         ButtonGroup bgTipo = new ButtonGroup();                                 // Agregamos grupo para agrupar los JRadioButton
         JRadioButton rbAud = new JRadioButton("Audio");
-        JRadioButton rbImg = new JRadioButton("Imágen");
-        JRadioButton rbVid = new JRadioButton("Video");                         // Añadimos elementos JRadioButton
+        JRadioButton rbImg = new JRadioButton("Imagen");
+        JRadioButton rbVid = new JRadioButton("Vídeo");                         // Añadimos elementos JRadioButton
         JRadioButton rbPdf = new JRadioButton("Pdf");
         JRadioButton rbWeb = new JRadioButton("Web");
         JRadioButton rbOtr = new JRadioButton("Otros");
