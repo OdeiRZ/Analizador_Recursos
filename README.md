@@ -1,29 +1,37 @@
-Analizador Recursos 0.9
-================================
+# Analizador de Recursos
 
-Aplicación desarrollada en Java para analizar recursos en la web utilizando hilos. El programa 
-nos muestra una interfaz gráfica con un campo de texto donde podremos introducir la url del
-recursos a analizar, y tras pulsar un botón, el software detectará de que tipo de recursos se 
-trata y diferentes valores del mismo, diferenciando de esta manera entre audios, imágenes, vídeos,
-pdf's, web's, y otros.
+Aplicación de escritorio en Java (Swing) que analiza un recurso web a partir de su URL y muestra su tipo, tamaño y fecha de última modificación.
 
-El proyecto hace uso de una interfaz gráfica y diferentes elementos multimedia para dotar
-a la aplicación de un mayor atractivo visual.
+## Características
 
-Para facilitar la puesta en marcha de la aplicación se proporciona un ejecutable .jar con el 
-proyecto construido y listo para ser ejecutado de manera gráfica.
+- Interfaz gráfica con un campo de texto para introducir la URL del recurso a analizar.
+- Analiza el recurso en un hilo independiente (`Analizador extends Thread`) para no bloquear la interfaz.
+- Obtiene mediante `URLConnection` el tipo de contenido (`Content-Type`), el tamaño en KB y la fecha de última modificación del recurso.
+- Clasifica automáticamente el recurso en Audio, Imagen, Vídeo, PDF, Web u Otros, marcando el `JRadioButton` correspondiente según la cabecera `Content-Type`.
+- Manejo de errores de URL mal formada o de lectura/escritura, mostrando el fallo en la propia interfaz de resultado.
+- Botón "Volver" para regresar a la ventana inicial y analizar un nuevo recurso.
 
-## Requisitos
-- [Java] 7 o superior (para ejecutar la Aplicación)
+## Tecnologías
 
-## Entorno de desarrollo
-La aplicación ha sido desarrollada utilizando el IDE [NetBeans] pero también es posible su 
-importanción en [Eclipe] y demás IDE's.
+- Java (Swing / AWT para la interfaz gráfica)
+- Apache Ant + NetBeans (`build.xml`, estructura de proyecto NetBeans)
+
+## Instalación / Cómo ejecutarlo
+
+**Opción rápida (ejecutable ya compilado):**
+```
+java -jar dist/Analizador_Recursos.jar
+```
+
+**Compilando desde el código fuente:**
+1. Abre el proyecto con NetBeans (o cualquier IDE compatible con Ant), o compílalo manualmente con `ant` desde la raíz del proyecto usando el `build.xml` incluido.
+2. Ejecuta la clase `Ventana_Interfaz` (contiene el `main`).
+3. Introduce una URL en el campo de texto y pulsa "Analizar".
+
+Requiere Java 7 o superior.
+
+Ejercicio académico que practica el uso de hilos (`Thread`), la clase `URLConnection` para inspeccionar cabeceras HTTP, y la construcción de interfaces gráficas con Swing.
 
 ## Licencia
-Esta aplicación se ofrece bajo licencia [GPL versión 3].
 
-[GPL versión 3]: https://www.gnu.org/licenses/gpl-3.0.en.html
-[NetBeans]: https://netbeans.org/
-[Eclipe]: https://eclipse.org/
-[Java]: https://www.java.com/
+GPL versión 3 (ver archivo [LICENSE](LICENSE)).
